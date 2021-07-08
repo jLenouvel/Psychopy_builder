@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" ?>
+<PsychoPy2experiment encoding="utf-8" version="2020.2.6">
+  <Settings>
+    <Param name="Audio latency priority" updates="None" val="use prefs" valType="str"/>
+    <Param name="Audio lib" updates="None" val="use prefs" valType="str"/>
+    <Param name="Completed URL" updates="None" val="" valType="str"/>
+    <Param name="Data file delimiter" updates="None" val="auto" valType="str"/>
+    <Param name="Data filename" updates="None" val="u'data/%s_%s_%s' % (expInfo['participant'], expName, expInfo['date'])" valType="code"/>
+    <Param name="Enable Escape" updates="None" val="True" valType="bool"/>
+    <Param name="Experiment info" updates="None" val="{'participant':'', 'session':'001'}" valType="code"/>
+    <Param name="Force stereo" updates="None" val="True" valType="bool"/>
+    <Param name="Full-screen window" updates="None" val="True" valType="bool"/>
+    <Param name="HTML path" updates="None" val="" valType="str"/>
+    <Param name="Incomplete URL" updates="None" val="" valType="str"/>
+    <Param name="Monitor" updates="None" val="testMonitor" valType="str"/>
+    <Param name="Resources" updates="None" val="[]" valType="fileList"/>
+    <Param name="Save csv file" updates="None" val="False" valType="bool"/>
+    <Param name="Save excel file" updates="None" val="False" valType="bool"/>
+    <Param name="Save log file" updates="None" val="True" valType="bool"/>
+    <Param name="Save psydat file" updates="None" val="True" valType="bool"/>
+    <Param name="Save wide csv file" updates="None" val="True" valType="bool"/>
+    <Param name="Screen" updates="None" val="1" valType="num"/>
+    <Param name="Show info dlg" updates="None" val="True" valType="bool"/>
+    <Param name="Show mouse" updates="None" val="False" valType="bool"/>
+    <Param name="Units" updates="None" val="height" valType="str"/>
+    <Param name="Use version" updates="None" val="" valType="str"/>
+    <Param name="Window size (pixels)" updates="None" val="(1024, 768)" valType="code"/>
+    <Param name="blendMode" updates="None" val="avg" valType="str"/>
+    <Param name="color" updates="None" val="$[0,0,0]" valType="str"/>
+    <Param name="colorSpace" updates="None" val="rgb" valType="str"/>
+    <Param name="expName" updates="None" val="test_keypress_overlap" valType="str"/>
+    <Param name="exportHTML" updates="None" val="on Sync" valType="str"/>
+    <Param name="logging level" updates="None" val="exp" valType="code"/>
+  </Settings>
+  <Routines>
+    <Routine name="trial">
+      <CodeComponent name="code">
+        <Param name="Before Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Before JS Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Begin Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Begin JS Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Begin JS Routine" updates="constant" val="kb = new keyboard.Keyboard();&amp;#10;listKey = [];&amp;#10;R_Duration = 0;&amp;#10;L_Duration = 0;&amp;#10;Up_Duration = 0;&amp;#10;D_Duration = 0;&amp;#10;SeveralPress_Duration = 0;&amp;#10;Null_Duration = 0;&amp;#10;Other_Duration = 0;&amp;#10;" valType="extendedCode"/>
+        <Param name="Begin Routine" updates="constant" val="kb = keyboard.Keyboard()&amp;#10;listKey=[]&amp;#10;R_Duration = 0&amp;#10;L_Duration = 0&amp;#10;Up_Duration = 0&amp;#10;D_Duration = 0&amp;#10;SeveralPress_Duration = 0&amp;#10;Null_Duration = 0&amp;#10;Other_Duration = 0" valType="extendedCode"/>
+        <Param name="Code Type" updates="None" val="Auto-&gt;JS" valType="str"/>
+        <Param name="Each Frame" updates="constant" val="keys = kb.getKeys(clear = True)&amp;#10;for key in keys:&amp;#10;    if key.name =='q':&amp;#10;        core.quit()&amp;#10;&amp;#10;if len(keys)&gt; 0:# if a key has been pressed&amp;#10;    for key in keys:&amp;#10;        if key.duration is not None:#This checks if the key is already released&amp;#10;            KeyEnd = key.rt+ key.duration&amp;#10;            listKey.append([key.name, key.rt, KeyEnd])" valType="extendedCode"/>
+        <Param name="Each JS Frame" updates="constant" val="keys = kb.getKeys({&quot;clear&quot;: true});&amp;#10;for (var key, _pj_c = 0, _pj_a = keys, _pj_b = _pj_a.length; (_pj_c &lt; _pj_b); _pj_c += 1) {&amp;#10;    key = _pj_a[_pj_c];&amp;#10;    if ((key.name === &quot;q&quot;)) {&amp;#10;        core.quit();&amp;#10;    }&amp;#10;}&amp;#10;if ((keys.length &gt; 0)) {&amp;#10;    for (var key, _pj_c = 0, _pj_a = keys, _pj_b = _pj_a.length; (_pj_c &lt; _pj_b); _pj_c += 1) {&amp;#10;        key = _pj_a[_pj_c];&amp;#10;        if ((key.duration !== null)) {&amp;#10;            KeyEnd = (key.rt + key.duration);&amp;#10;            listKey.append([key.name, key.rt, KeyEnd]);&amp;#10;        }&amp;#10;    }&amp;#10;}&amp;#10;" valType="extendedCode"/>
+        <Param name="End Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="End JS Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="End JS Routine" updates="constant" val="/* Syntax Error: Fix Python code */" valType="extendedCode"/>
+        <Param name="End Routine" updates="constant" val="# Sort list by start of keypress (by defaut sort by end of keypress)&amp;#10;listKey.sort(key = lambda x: x[1])&amp;#10;thisExp.addData('listKey', listKey)&amp;#10;&amp;#10;####################################################&amp;#10;&amp;#10;time_event_happen =[]&amp;#10;for ev in listKey:&amp;#10;    time_event_happen.append(ev[1])&amp;#10;    time_event_happen.append(ev[2])&amp;#10;&amp;#10;time_event_happen = list(set(time_event_happen))&amp;#10;time_event_happen.sort()&amp;#10;&amp;#10;Interval_Key = []&amp;#10;for time_1, time_2 in zip(time_event_happen[:-1], time_event_happen[1:]):&amp;#10;    Interval = [time_1, time_2]&amp;#10;    for ev in listKey: # ev[0] : touch, ev[1]: rt(start), ev[2]:End&amp;#10;        if (time_1 &lt;= ev[1] &lt; time_2) or (time_1 &lt; ev[2] &lt;= time_2):&amp;#10;            Interval.append(ev[0])&amp;#10;    Interval_Key.append(Interval)&amp;#10;&amp;#10;for ev in Interval_Key:# ev[0] :rt(start), ev[1]: End, ev[2] and more : keypress (if key was press)&amp;#10;    if len(ev) == 2:# just ev[0] and ev[1] exist&amp;#10;        ev.append('Null')&amp;#10;&amp;#10;Interval_Key2 = Interval_Key.copy()&amp;#10;for ev in Interval_Key2:&amp;#10;    if len(ev) &gt; 3 :&amp;#10;        ev.insert(0, 'Double')&amp;#10;    else :&amp;#10;        ev.insert(0, ev[2])&amp;#10;&amp;#10;# add duration&amp;#10;for ev in Interval_Key2: # ev[0]: state, ev[1] : rt(start), ev[2]: End, ev[3] and more : keypress&amp;#10;    duration_ev = ev[2] - ev[1]# duration = end - start(rt)&amp;#10;    ev.insert(2, duration_ev) &amp;#10;    # now : ev[0]: state, ev[1] : rt(start), ev[2]: duration, ev[3] : end, ev[4] and more : keypress&amp;#10;    &amp;#10;thisExp.addData('Interval_Key2', Interval_Key2)&amp;#10;##################################################&amp;#10;&amp;#10;for ev in Interval_Key2:&amp;#10;    if ev[0] == 'up':&amp;#10;        Up_Duration = Up_Duration +ev[2]&amp;#10;    elif ev[0] == 'right':&amp;#10;        R_Duration = R_Duration +ev[2]&amp;#10;    elif ev[0] == 'left':&amp;#10;        L_Duration = L_Duration + ev[2]&amp;#10;    elif ev[0] == 'down':&amp;#10;        D_Duration = D_Duration + ev[2]&amp;#10;    elif ev[0] == 'Double':&amp;#10;        SeveralPress_Duration = SeveralPress_Duration + ev[2]&amp;#10;    elif ev[0] == 'Null':&amp;#10;        Null_Duration = Null_Duration + ev[2]&amp;#10;    else :&amp;#10;        Other_Duration = Other_Duration + ev[2]&amp;#10;        &amp;#10;thisExp.addData('Up_Duration', Up_Duration)&amp;#10;thisExp.addData('R_Duration', R_Duration)&amp;#10;thisExp.addData('L_Duration', L_Duration)&amp;#10;thisExp.addData('D_Duration', D_Duration)&amp;#10;thisExp.addData('SeveralPress_Duration', SeveralPress_Duration)&amp;#10;thisExp.addData('Null_Duration', Null_Duration)&amp;#10;thisExp.addData('Other_Duration', Other_Duration)" valType="extendedCode"/>
+        <Param name="disabled" updates="None" val="False" valType="bool"/>
+        <Param name="name" updates="None" val="code" valType="code"/>
+      </CodeComponent>
+      <GratingComponent name="grating">
+        <Param name="blendmode" updates="constant" val="avg" valType="str"/>
+        <Param name="color" updates="constant" val="$[1,1,1]" valType="str"/>
+        <Param name="colorSpace" updates="constant" val="rgb" valType="str"/>
+        <Param name="disabled" updates="None" val="False" valType="bool"/>
+        <Param name="durationEstim" updates="None" val="" valType="code"/>
+        <Param name="interpolate" updates="constant" val="linear" valType="str"/>
+        <Param name="mask" updates="constant" val="None" valType="str"/>
+        <Param name="name" updates="None" val="grating" valType="code"/>
+        <Param name="opacity" updates="constant" val="1" valType="code"/>
+        <Param name="ori" updates="constant" val="0" valType="code"/>
+        <Param name="phase" updates="constant" val="0.0" valType="code"/>
+        <Param name="pos" updates="constant" val="(0, 0)" valType="code"/>
+        <Param name="saveStartStop" updates="None" val="True" valType="bool"/>
+        <Param name="sf" updates="constant" val="None" valType="code"/>
+        <Param name="size" updates="constant" val="(0.5, 0.5)" valType="code"/>
+        <Param name="startEstim" updates="None" val="" valType="code"/>
+        <Param name="startType" updates="None" val="time (s)" valType="str"/>
+        <Param name="startVal" updates="None" val="0.0" valType="code"/>
+        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
+        <Param name="stopVal" updates="constant" val="6" valType="code"/>
+        <Param name="syncScreenRefresh" updates="None" val="True" valType="bool"/>
+        <Param name="tex" updates="constant" val="sin" valType="str"/>
+        <Param name="texture resolution" updates="constant" val="128" valType="code"/>
+        <Param name="units" updates="None" val="from exp settings" valType="str"/>
+      </GratingComponent>
+    </Routine>
+  </Routines>
+  <Flow>
+    <Routine name="trial"/>
+  </Flow>
+</PsychoPy2experiment>
